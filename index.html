@@ -131,6 +131,12 @@
   .yt:hover img { filter: brightness(1.08); }
   .yt .play { position: absolute; left: 50%; top: 50%; width: 4.5rem; height: 4.5rem; margin: -2.25rem 0 0 -2.25rem; border-radius: 50%; background: var(--amber); box-shadow: 0 8px 24px #00000066; }
   .yt .play::after { content: ""; position: absolute; left: 1.85rem; top: 1.4rem; border-style: solid; border-width: .85rem 0 .85rem 1.3rem; border-color: transparent transparent transparent var(--spruce-deep); }
+  .yt.loading .play { background: #0f2420b3; box-shadow: 0 8px 24px #00000066; border: 5px solid #ffffff40; border-top-color: var(--amber); animation: spin .8s linear infinite; }
+  .yt.loading .play::after { display: none; }
+  .yt.loading img { filter: brightness(.7); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .yt.loading .play { animation-duration: 2.4s; } }
+  .media-grid figure { position: relative; }
   .caption { color: var(--sage); font-size: .95rem; margin-top: .75rem; }
   .caption b { color: var(--chalk); font-weight: 700; }
   .tracks { margin-top: 3rem; max-width: 52rem; }
@@ -310,7 +316,7 @@
         </figure>
         <figure>
           <button class="yt" type="button" data-id="cHqvx-qRwjk" aria-label="Play Basket Case">
-            <img src="img/yt-basket-case.jpg" width="960" height="540" loading="lazy" alt="">
+            <img src="img/yt-basket-case.jpg" width="960" height="540" alt="">
             <span class="play" aria-hidden="true"></span>
           </button>
           <figcaption class="caption"><b>Basket Case</b> (Green Day), live with Ten Cent Prophet</figcaption>
@@ -438,17 +444,42 @@
   </footer>
   <script>
     // Load YouTube only when someone clicks play, so the page stays fast and no tracking loads up front.
+    // Hovering or touching a video warms up the connection; clicking shows a spinner until the player is ready.
+    let warmed = false;
+    const warm = () => {
+      if (warmed) return;
+      warmed = true;
+      for (const href of ["https://www.youtube-nocookie.com", "https://www.google.com", "https://i.ytimg.com", "https://googlevideo.com"]) {
+        const l = document.createElement("link");
+        l.rel = "preconnect";
+        l.href = href;
+        l.crossOrigin = "";
+        document.head.append(l);
+      }
+    };
     document.querySelectorAll(".yt").forEach((btn) => {
+      btn.addEventListener("pointerenter", warm, { once: true });
+      btn.addEventListener("touchstart", warm, { once: true, passive: true });
+      btn.addEventListener("focus", warm, { once: true });
       btn.addEventListener("click", () => {
+        if (btn.classList.contains("loading")) return;
+        btn.classList.add("loading");
+        btn.setAttribute("aria-busy", "true");
+        const wrap = document.createElement("div");
+        wrap.className = "yt-frame";
         const f = document.createElement("iframe");
         f.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.id}?autoplay=1&rel=0`;
         f.title = btn.getAttribute("aria-label").replace("Play ", "");
         f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
         f.allowFullscreen = true;
-        const wrap = document.createElement("div");
-        wrap.className = "yt-frame";
+        // Keep the thumbnail and spinner on top until the player has loaded.
+        btn.after(wrap);
         wrap.append(f);
-        btn.replaceWith(wrap);
+        wrap.style.cssText = "position:absolute; top:0; left:0; width:100%; opacity:0; pointer-events:none;";
+        f.addEventListener("load", () => {
+          wrap.style.cssText = "";
+          btn.remove();
+        }, { once: true });
       });
     });
   </script>
