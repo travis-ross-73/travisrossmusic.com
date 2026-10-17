@@ -1,0 +1,8 @@
+# Publish only the page and its web-sized assets.
+# Travis's original photos, video and MP3s stay local.
+/*
+!/index.html
+!/img/
+!/media/
+!/CNAME
+!/.gitignore

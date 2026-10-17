@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travis Ross | Live acoustic music on the Front Range</title>
+<meta name="description" content="Solo acoustic guitar and vocals for breweries, restaurants, wineries and private events from Cheyenne to Colorado Springs. Covers your guests know, with song requests from their phones.">
+<meta property="og:title" content="Travis Ross | Live acoustic music on the Front Range">
+<meta property="og:description" content="Solo acoustic covers for breweries, restaurants and private events from Cheyenne to Colorado Springs.">
+<meta property="og:image" content="https://travisrossmusic.com/img/travis-live.jpg">
+<meta property="og:url" content="https://travisrossmusic.com/">
+<meta name="theme-color" content="#16302b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316302b'/%3E%3Ctext x='32' y='43' font-family='Arial Black,Arial' font-weight='900' font-size='30' text-anchor='middle' fill='%23e0a43a'%3ETR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --spruce: #16302b;
+    --spruce-deep: #0f2420;
+    --spruce-line: #ffffff1f;
+    --sage: #9fb5a8;
+    --amber: #e0a43a;
+    --chalk: #f2f1ec;
+    --mist: #d6dbd4;
+    --paper: #e9ece6;
+    --ink: #1a1a1a;
+    --tape: #c9c2a8;
+    --measure: 36rem;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--spruce);
+    color: var(--chalk);
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, video { max-width: 100%; height: auto; display: block; }
+  a { color: var(--amber); }
+  a:focus-visible, button:focus-visible, video:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+  .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin: 0 0 .75rem; }
+
+  /* Header */
+  .top { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
+  .wordmark { font-weight: 800; font-stretch: 112%; font-size: 1.125rem; letter-spacing: .01em; color: var(--chalk); text-decoration: none; }
+  .top nav { display: flex; align-items: center; gap: 1.5rem; }
+  .top nav a { color: var(--sage); text-decoration: none; font-size: .95rem; padding: .6rem 0; }
+  .top nav a:hover { color: var(--chalk); }
+  .top nav a.nav-cta { color: var(--spruce-deep); background: var(--amber); padding: .7rem 1rem; border-radius: 3px; font-weight: 700; }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 3.5rem; align-items: center; padding: 2.5rem 0 4rem; }
+  .hero h1 {
+    margin: 0 0 1.5rem;
+    font-weight: 900;
+    font-stretch: 125%;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: .95;
+    letter-spacing: -.01em;
+  }
+  .hero p { max-width: var(--measure); color: var(--mist); margin: 0 0 2rem; font-size: 1.15rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn {
+    display: inline-block; padding: .85rem 1.35rem; border-radius: 3px;
+    font-weight: 700; font-size: 1rem; text-decoration: none;
+    background: var(--amber); color: var(--spruce-deep);
+  }
+  .btn.ghost { background: transparent; color: var(--chalk); box-shadow: inset 0 0 0 2px var(--sage); }
+  .btn:hover { filter: brightness(1.07); }
+  .photo { aspect-ratio: 4 / 5; border-radius: 2px; overflow: hidden; background: var(--spruce-deep); box-shadow: 0 24px 60px #0000004d; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Proof strip */
+  .proof { border-top: 1px solid var(--spruce-line); border-bottom: 1px solid var(--spruce-line); }
+  .proof ul { list-style: none; margin: 0; padding: 1.5rem 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  .proof b { display: block; font-weight: 800; font-stretch: 115%; font-size: 1.35rem; line-height: 1.15; color: var(--chalk); }
+  .proof span { color: var(--sage); font-size: .95rem; }
+
+  /* Sections */
+  section { padding: 5rem 0; }
+  h2 {
+    font-weight: 850; font-stretch: 118%;
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1.05; margin: 0 0 1rem;
+  }
+  .lede { max-width: var(--measure); color: var(--mist); margin: 0 0 2.5rem; }
+
+  /* What a night looks like */
+  .fit dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.25rem 3.5rem; margin: 0; max-width: 60rem; }
+  .fit dl > div { border-left: 3px solid var(--amber); padding-left: 1.1rem; }
+  .fit dt { font-weight: 750; font-size: 1.2rem; margin-bottom: .35rem; color: var(--chalk); }
+  .fit dd { margin: 0; color: #c3ccc5; max-width: 28rem; }
+
+  /* Requests */
+  .requests { background: var(--spruce-deep); }
+  .requests .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; }
+  .steps { list-style: none; margin: 0 0 2rem; padding: 0; counter-reset: step; max-width: var(--measure); }
+  .steps li { counter-increment: step; position: relative; padding-left: 2.75rem; margin-bottom: 1rem; color: var(--mist); }
+  .steps li::before {
+    content: counter(step); position: absolute; left: 0; top: -.1rem;
+    width: 1.9rem; height: 1.9rem; border-radius: 50%; display: grid; place-items: center;
+    background: var(--amber); color: var(--spruce-deep); font-weight: 800; font-size: .95rem;
+  }
+  .steps b { color: var(--chalk); }
+  .phone {
+    justify-self: center; width: min(17rem, 100%); aspect-ratio: 9 / 17; border-radius: 2rem;
+    background: #0a1714; border: 2px solid #ffffff26; padding: 1.1rem .9rem; box-shadow: 0 24px 60px #00000059;
+    display: flex; flex-direction: column; gap: .55rem; font-size: .85rem;
+  }
+  .phone .ph-title { font-weight: 800; font-stretch: 112%; font-size: 1rem; margin: .4rem 0 .3rem; text-align: center; }
+  .phone .ph-song { display: flex; justify-content: space-between; align-items: center; background: #ffffff0d; border-radius: .6rem; padding: .55rem .7rem; }
+  .phone .ph-song small { display: block; color: var(--sage); font-size: .75rem; }
+  .phone .ph-song em { font-style: normal; font-weight: 700; color: var(--spruce-deep); background: var(--amber); border-radius: 999px; padding: .15rem .55rem; font-size: .75rem; }
+  .phone .ph-note { margin-top: auto; text-align: center; color: var(--sage); font-size: .75rem; }
+
+  /* Listen */
+  .listen + section { border-top: 1px solid var(--spruce-line); }
+  .media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+  .media-grid figure { margin: 0; }
+  .media-grid .feature { grid-column: 1 / -1; }
+  .yt-frame { position: relative; aspect-ratio: 16 / 9; background: #0a1a17; border-radius: 2px; overflow: hidden; }
+  .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .listen video, .yt { width: 100%; aspect-ratio: 16 / 9; background: #0a1a17; border-radius: 2px; border: 0; display: block; }
+  .yt { position: relative; padding: 0; cursor: pointer; overflow: hidden; }
+  .yt img { width: 100%; height: 100%; object-fit: cover; transition: filter .2s; }
+  .yt:hover img { filter: brightness(1.08); }
+  .yt .play { position: absolute; left: 50%; top: 50%; width: 4.5rem; height: 4.5rem; margin: -2.25rem 0 0 -2.25rem; border-radius: 50%; background: var(--amber); box-shadow: 0 8px 24px #00000066; }
+  .yt .play::after { content: ""; position: absolute; left: 1.85rem; top: 1.4rem; border-style: solid; border-width: .85rem 0 .85rem 1.3rem; border-color: transparent transparent transparent var(--spruce-deep); }
+  .caption { color: var(--sage); font-size: .95rem; margin-top: .75rem; }
+  .caption b { color: var(--chalk); font-weight: 700; }
+  .tracks { margin-top: 3rem; max-width: 52rem; }
+  .tracks h3 { font-weight: 800; font-stretch: 112%; font-size: 1.25rem; margin: 0 0 .75rem; }
+  .track { display: grid; grid-template-columns: 1fr minmax(0, 22rem); gap: 1rem; align-items: center; padding: .9rem 0; border-top: 1px solid var(--spruce-line); }
+  .track b { display: block; font-weight: 700; }
+  .track span { color: var(--sage); font-size: .9rem; }
+  .track audio { width: 100%; }
+  .more { margin: 2rem 0 0; }
+
+  /* Setlist */
+  .songs { display: grid; grid-template-columns: .8fr 1.2fr; gap: 3rem; align-items: start; }
+  .sheet {
+    position: relative; background: var(--paper); color: var(--ink);
+    padding: 2.75rem 2rem 2.25rem; transform: rotate(-1.4deg);
+    box-shadow: 0 18px 40px #00000059;
+    font-family: "Permanent Marker", cursive;
+  }
+  .sheet::before, .sheet::after {
+    content: ""; position: absolute; top: -14px; width: 92px; height: 30px;
+    background: var(--tape); opacity: .9;
+  }
+  .sheet::before { left: 18px; transform: rotate(-6deg); }
+  .sheet::after { right: 18px; transform: rotate(5deg); }
+  .sheet h3 { margin: 0 0 1rem; font-weight: 400; font-size: 1.6rem; }
+  .sheet ol { margin: 0; padding-left: 2.1rem; columns: 2; column-gap: 2rem; font-size: 1.12rem; line-height: 1.5; }
+  .sheet li { break-inside: avoid; padding-left: .2rem; }
+  .sheet li span { font-family: "Archivo", sans-serif; font-size: .8rem; color: #555; display: block; margin-top: -.15rem; margin-bottom: .35rem; }
+
+  /* Band */
+  .band { background: var(--spruce-deep); }
+  .band figure { margin: 0 0 2.5rem; }
+  .band figure img { width: 100%; height: auto; border-radius: 2px; }
+  .band figcaption { color: var(--sage); font-size: .9rem; margin-top: .6rem; }
+  .band .cols { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: start; }
+  .band .formats { list-style: none; margin: 0; padding: 0; }
+  .band .formats li { padding: .7rem 0; border-bottom: 1px solid var(--spruce-line); display: flex; justify-content: space-between; gap: 1rem; }
+  .band .formats li span { color: var(--sage); }
+
+  /* Played at */
+  .played ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1.4rem 2rem; }
+  .played li { font-weight: 700; font-stretch: 108%; font-size: 1.15rem; line-height: 1.25; color: var(--chalk); }
+  .played li small { display: block; font-weight: 400; font-stretch: 100%; font-size: .9rem; color: var(--sage); margin-top: .15rem; }
+  .played .tag { display: inline-block; margin-left: .4rem; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--spruce-deep); background: var(--amber); border-radius: 2px; padding: .05rem .35rem; vertical-align: .15rem; }
+  .played .note { color: var(--sage); font-size: .95rem; margin: 0 0 2rem; }
+
+  /* Booking */
+  .book { background: var(--amber); color: var(--spruce-deep); }
+  .book .wrap { display: grid; grid-template-columns: 1.3fr .7fr; gap: 3rem; align-items: center; }
+  .book h2 { color: var(--spruce-deep); }
+  .book .eyebrow { color: var(--spruce); }
+  .book .lede { color: #2b3a35; }
+  .book ul { margin: 0 0 2rem; padding-left: 1.2rem; max-width: var(--measure); }
+  .book li { margin-bottom: .35rem; }
+  .book .btn { background: var(--spruce-deep); color: var(--chalk); }
+  .book a.mail { color: var(--spruce-deep); font-weight: 700; }
+  .book .me img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; box-shadow: 0 18px 40px #0f24203d; }
+  .book .me p { margin: .75rem 0 0; font-size: .95rem; color: #2b3a35; }
+
+  footer { padding: 2rem 0 3rem; color: var(--sage); font-size: .9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+  footer a { color: var(--sage); }
+
+  @media (max-width: 860px) {
+    .hero, .requests .wrap, .songs, .band .cols, .book .wrap { grid-template-columns: 1fr; }
+    .hero { padding-top: 1rem; gap: 2rem; }
+    .photo { aspect-ratio: 4 / 4.2; order: -1; }
+    .fit dl, .media-grid, .track { grid-template-columns: 1fr; }
+    .sheet { transform: rotate(-.8deg); }
+    .top nav a:not(.nav-cta) { display: none; }
+    .proof ul { grid-template-columns: 1fr; gap: 1rem; }
+    .book .me { max-width: 18rem; }
+    section { padding: 4rem 0; }
+  }
+  @media (max-width: 480px) {
+    .sheet ol { columns: 1; }
+    .sheet { padding: 2.5rem 1.4rem 1.75rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="wordmark" href="#">Travis Ross</a>
+      <nav aria-label="Sections">
+        <a href="#listen">Listen</a>
+        <a href="#songs">Songs</a>
+        <a href="#band">Full band</a>
+        <a class="nav-cta" href="#book">Book a date</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Solo acoustic · Front Range, CO</p>
+        <h1>Live music that fits your room.</h1>
+        <p>Guitar and vocals for breweries, restaurants, wineries and private events, from Cheyenne to Colorado Springs. Songs your guests know, at a volume they can still talk over.</p>
+        <div class="actions">
+          <a class="btn" href="#book">Check a date</a>
+          <a class="btn ghost" href="#listen">Hear a clip</a>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="img/travis-live.jpg" width="1200" height="1500" alt="Travis Ross singing and playing guitar on stage">
+      </div>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="wrap">
+      <ul>
+        <li><b>Gigging since 2017</b><span>Hundreds of shows with Ten Cent Prophet</span></li>
+        <li><b>5 states</b><span>Colorado, Wyoming, Kansas, Nebraska, New Mexico</span></li>
+        <li><b>Brings the PA</b><span>Small footprint. Needs a spot and an outlet.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="fit">
+    <div class="wrap">
+      <h2>What a night with live music should do for you</h2>
+      <p class="lede">You want guests to stay for one more round and come back next week. That's the job.</p>
+      <dl>
+        <div>
+          <dt>Keep people at the table</dt>
+          <dd>Music sets the mood without taking over the room. I read the crowd and adjust volume and song choice as the night goes.</dd>
+        </div>
+        <div>
+          <dt>Songs your crowd already knows</dt>
+          <dd>John Denver and Tom Petty to Chris Stapleton, Oasis and Coldplay. The stuff people sing along to without being asked. I'll tailor the set to your regulars.</dd>
+        </div>
+        <div>
+          <dt>Nothing for your staff to manage</dt>
+          <dd>I bring my own sound system, set up in a small footprint, and arrive early. All you need is a spot and a power outlet.</dd>
+        </div>
+        <div>
+          <dt>Fill the nights that need it</dt>
+          <dd>A slow weeknight, a patio weekend, a release party or a holiday event. Tell me what you're trying to build and we'll plan around it.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="requests">
+    <div class="wrap">
+      <div>
+        <h2>Your guests pick the songs</h2>
+        <p class="lede">Requests run through Bribe The Band, an app I built for exactly this. Nobody shouts over the bar, and there's nothing for your staff to set up.</p>
+        <ol class="steps">
+          <li><b>Guests scan the QR code</b> on my stand.</li>
+          <li><b>They pick a song</b> from my list on their phone, and add a tip if they want to.</li>
+          <li><b>It comes straight to me,</b> and they stick around to hear it.</li>
+        </ol>
+        <a class="btn ghost" href="https://bribetheband.live/travis-ross">See my request page</a>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="ph-title">Pick a song</div>
+        <div class="ph-song"><div>Tennessee Whiskey<small>Chris Stapleton</small></div><em>$10 tip</em></div>
+        <div class="ph-song"><div>Free Fallin'<small>Tom Petty</small></div><em>$5 tip</em></div>
+        <div class="ph-song"><div>Wonderwall<small>Oasis</small></div><em>$20 tip</em></div>
+        <div class="ph-song"><div>Country Roads<small>John Denver</small></div><em>$5 tip</em></div>
+        <div class="ph-note">bribetheband.live</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="listen" id="listen">
+    <div class="wrap">
+      <h2>Hear what it sounds like</h2>
+      <p class="lede">Most of my footage is with Ten Cent Prophet. Solo, it's the same voice and the same songs, with a smaller footprint.</p>
+      <div class="media-grid">
+        <figure class="feature">
+          <button class="yt" type="button" data-id="tVosT6Fu8Gc" aria-label="Play My Own Worst Enemy">
+            <img src="img/yt-my-own-worst-enemy.jpg" width="1280" height="720" alt="">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <figcaption class="caption"><b>My Own Worst Enemy</b> (Lit), live with Ten Cent Prophet</figcaption>
+        </figure>
+        <figure>
+          <button class="yt" type="button" data-id="prrPyKZPYPc" aria-label="Play Simple Man">
+            <img src="img/yt-simple-man.jpg" width="960" height="540" loading="lazy" alt="">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <figcaption class="caption"><b>Simple Man</b> (Lynyrd Skynyrd), live with Ten Cent Prophet</figcaption>
+        </figure>
+        <figure>
+          <video controls preload="none" playsinline poster="img/windsor-poster.jpg" width="960" height="540">
+            <source src="media/windsor-summer-concert.mp4" type="video/mp4">
+            Your browser can't play this video.
+          </video>
+          <figcaption class="caption"><b>Windsor Summer Concert Series</b>, June 2026</figcaption>
+        </figure>
+      </div>
+      <div class="tracks">
+        <h3>Recordings</h3>
+        <div class="track">
+          <div><b>Gravity</b><span>John Mayer cover · Ten Cent Prophet</span></div>
+          <audio controls preload="none" src="media/gravity.m4a"></audio>
+        </div>
+        <div class="track">
+          <div><b>Crazy About You</b><span>Whiskeytown cover · Ten Cent Prophet</span></div>
+          <audio controls preload="none" src="media/crazy-about-you.m4a"></audio>
+        </div>
+      </div>
+      <p class="more"><a href="https://www.youtube.com/@tencentprophet">More videos on YouTube</a></p>
+    </div>
+  </section>
+
+  <section id="songs">
+    <div class="wrap songs">
+      <div>
+        <h2>A few from the setlist</h2>
+        <p class="lede">A sample of what I play: 90s and 2000s radio, classic rock and country, plus more John Denver than you'd expect (this is Colorado). The full list runs to 52 songs, and I'm happy to learn a song or two for your event.</p>
+        <p><a href="https://bribetheband.live/travis-ross">See the full list</a></p>
+      </div>
+      <div class="sheet" aria-label="Sample setlist">
+        <h3>Tonight</h3>
+        <!-- Pulled from Bribe The Band (travis-ross, 52 visible songs) on 2026-10-16. Swap in your own picks anytime. -->
+        <ol>
+          <li>Take Me Home, Country Roads<span>John Denver</span></li>
+          <li>Wonderwall<span>Oasis</span></li>
+          <li>Tennessee Whiskey<span>Chris Stapleton</span></li>
+          <li>Free Fallin'<span>Tom Petty</span></li>
+          <li>Hey There Delilah<span>Plain White T's</span></li>
+          <li>Peaceful Easy Feeling<span>Eagles</span></li>
+          <li>One Headlight<span>The Wallflowers</span></li>
+          <li>Jack &amp; Diane<span>John Mellencamp</span></li>
+          <li>Yellow<span>Coldplay</span></li>
+          <li>Ring of Fire<span>Johnny Cash</span></li>
+          <li>Gravity<span>John Mayer</span></li>
+          <li>Closing Time<span>Semisonic</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="band">
+    <div class="wrap">
+      <p class="eyebrow">Need a bigger sound?</p>
+      <h2>Bring the whole band</h2>
+      <figure>
+        <img src="img/ten-cent-prophet.jpg" width="1800" height="778" loading="lazy" alt="The five members of Ten Cent Prophet standing by a lake">
+        <figcaption>Ten Cent Prophet</figcaption>
+      </figure>
+      <div class="cols">
+        <div>
+          <p class="lede">I sing and play guitar in Ten Cent Prophet, a five-piece classic rock and 90s band. We've played together since 2017: hundreds of shows across five states, from casinos and summer concert series to weddings and backyard parties. If your event needs a dance floor, not just a soundtrack, this is the call.</p>
+          <a class="btn" href="https://tencentprophet.com">Visit tencentprophet.com</a>
+        </div>
+        <ul class="formats" aria-label="Ways to book">
+          <li>Solo acoustic <span>Just me</span></li>
+          <li>Duo or trio <span>A few of us, still unplugged-friendly</span></li>
+          <li>Full band <span>All five, dance-floor ready</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="played">
+    <div class="wrap">
+      <h2>Where I've played</h2>
+      <p class="note">With Ten Cent Prophet unless marked solo.</p>
+      <ul>
+        <li>Relish<span class="tag">Solo</span><small>Louisville, CO</small></li>
+        <li>Horseshoe Black Hawk<small>Black Hawk, CO</small></li>
+        <li>Elitch Gardens<small>Denver, CO</small></li>
+        <li>Snake River Saloon<small>Keystone, CO</small></li>
+        <li>Windsor Summer Concert Series<small>Windsor, CO</small></li>
+        <li>Estes Park Marina<small>Estes Park, CO</small></li>
+        <li>Bootstrap Brewing<small>Longmont, CO</small></li>
+        <li>Mash Lab Brewing<small>Windsor, CO</small></li>
+        <li>BurnDown<small>Denver, CO</small></li>
+        <li>Horse Palace at Swan Ranch<small>Cheyenne, WY</small></li>
+        <li>The Gaslight Social<small>Casper, WY</small></li>
+        <li>Lake Mac Casino Resort<small>Ogallala, NE</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Booking</p>
+        <h2>Tell me about your place</h2>
+        <p class="lede">Before we talk dates, I'd like to know what you're working with. A quick note covering any of these helps:</p>
+        <ul>
+          <li>Your venue or event, and the crowd you usually get</li>
+          <li>Nights or dates you're trying to fill</li>
+          <li>What you'd like the music to do: background, a draw, or a special occasion</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="mailto:travis@travisrossmusic.com?subject=Live%20music%20at%20our%20venue">Email Travis</a>
+        </div>
+        <p style="margin-top:1.25rem">Or write to <a class="mail" href="mailto:travis@travisrossmusic.com">travis@travisrossmusic.com</a></p>
+      </div>
+      <div class="me">
+        <img src="img/travis-portrait.jpg" width="879" height="1000" loading="lazy" alt="Portrait of Travis Ross">
+        <p>You'll be talking to me, not a booking agent.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>Travis Ross, based in Erie, Colorado. Playing Cheyenne to Colorado Springs.</span>
+    <a href="https://tencentprophet.com">Ten Cent Prophet</a>
+  </footer>
+  <script>
+    // Load YouTube only when someone clicks play, so the page stays fast and no tracking loads up front.
+    document.querySelectorAll(".yt").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const f = document.createElement("iframe");
+        f.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.id}?autoplay=1&rel=0`;
+        f.title = btn.getAttribute("aria-label").replace("Play ", "");
+        f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+        f.allowFullscreen = true;
+        const wrap = document.createElement("div");
+        wrap.className = "yt-frame";
+        wrap.append(f);
+        btn.replaceWith(wrap);
+      });
+    });
+  </script>
+</body>
+</html>
