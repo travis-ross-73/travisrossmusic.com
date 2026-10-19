@@ -6,3 +6,8 @@
 !/media/
 !/CNAME
 !/.gitignore
+!/favicon.ico
+!/favicon-*.png
+!/apple-touch-icon.png
+!/android-chrome-*.png
+!/site.webmanifest
